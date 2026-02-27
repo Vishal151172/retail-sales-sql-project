@@ -64,7 +64,7 @@ JOIN Products p
 ON od.product_id = p.product_id;
 
 
--- Business Question 1: Total Revenue
+-- Question 1: Total Revenue
 
 SELECT SUM(p.price * od.quantity) AS total_revenue
 FROM Order_Details od
@@ -72,7 +72,7 @@ JOIN Products p
 ON od.product_id = p.product_id;
 
 
--- Business Question 2: Revenue by Category
+-- Question 2: Revenue by Category
 
 SELECT p.category,
        SUM(p.price * od.quantity) AS revenue
@@ -83,7 +83,7 @@ GROUP BY p.category
 ORDER BY revenue DESC;
 
 
--- Business Question 3: Top Customers by Spending
+-- Question 3: Top Customers by Spending
 
 SELECT c.customer_name,
        SUM(p.price * od.quantity) AS total_spent
@@ -95,7 +95,7 @@ GROUP BY c.customer_name
 ORDER BY total_spent DESC;
 
 
--- Business Question 4: Monthly Revenue Trend
+-- Question 4: Monthly Revenue Trend
 
 SELECT DATE_FORMAT(o.order_date, '%Y-%m') AS month,
        SUM(p.price * od.quantity) AS monthly_revenue
